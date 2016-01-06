@@ -32,7 +32,7 @@ public class TimeConverterImpl implements TimeConverter {
 	}
 
 	private void validateCorrectInputTime(String aTime) {
-		if (!aTime.matches("^[0-2][0-9](:[0-6][0-9]){2}$")) {
+		if (!aTime.matches("^([01]?[0-9]|2[0-4])(:[0-5][0-9]){2}$")) {
 			throw new WrongInputTimeException(aTime);
 		};
 	}

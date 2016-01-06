@@ -1,5 +1,6 @@
 package com.ubs.opsit.interviews;
 
+import org.jbehave.core.annotations.Given;
 import org.jbehave.core.annotations.Then;
 import org.jbehave.core.annotations.When;
 import org.junit.Test;
@@ -18,13 +19,17 @@ public class BerlinClockFixture {
 
     @Test
     public void berlinClockAcceptanceTests() throws Exception {
-    	berlinClock = new TimeConverterImpl();
-        aBehaviouralTestRunner()
+    	 aBehaviouralTestRunner()
                 .usingStepsFrom(this)
                 .withStory("berlin-clock.story")
                 .run();
     }
 
+    @Given("berlin clock")
+    public void berlinClock() {
+    	berlinClock = new TimeConverterImpl();
+    }
+    
     @When("the time is $time")
     public void whenTheTimeIs(String time) {
         theTime = time;
